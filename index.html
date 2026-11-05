@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMUS — Deco e iluminación de diseño</title>
+<meta name="description" content="Veladores y objetos de diseño impresos en 3D, creados para aportar calidez y estilo a tus espacios. General Roca, Río Negro.">
+<meta name="theme-color" content="#974329">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Gilda+Display&family=Jost:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+:root{
+  --terracota:#974329;
+  --terracota-osc:#7a3420;
+  --rosa:#DCA695;
+  --durazno:#EFCEAA;
+  --crema:#F1E9DE;
+  --crema-claro:#FAF5EE;
+  --violeta:#975A84;
+  --texto:#3d2a22;
+  --texto-suave:#6e5248;
+  --linea:#e6d6c6;
+  --blanco:#fffdfa;
+  --serif:'Gilda Display',Georgia,serif;
+  --logo:'Cinzel',Georgia,serif;
+  --script:'Mrs Saint Delafield',cursive;
+  --sans:'Jost',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:300;font-size:17px;background:var(--crema-claro);color:var(--texto);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+button{font:inherit;color:inherit;}
+a{color:inherit;}
+
+/* ── NAV ── */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;position:sticky;top:0;background:rgba(250,245,238,0.94);backdrop-filter:blur(10px);z-index:100;border-bottom:0.5px solid var(--linea);}
+.logo{text-decoration:none;display:flex;flex-direction:column;align-items:center;line-height:1;}
+.logo-main{font-family:var(--logo);font-weight:400;font-size:1.75rem;letter-spacing:0.3em;color:var(--terracota);padding-left:0.3em;}
+.logo-sub{font-family:var(--serif);font-size:0.78rem;color:var(--terracota);border-top:0.5px solid var(--terracota);margin-top:0.35rem;padding-top:0.25rem;letter-spacing:0.04em;}
+nav ul{list-style:none;display:flex;gap:2.4rem;}
+nav ul a{text-decoration:none;color:var(--texto-suave);font-size:0.84rem;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s;}
+nav ul a:hover{color:var(--terracota);}
+
+/* ── HERO ── */
+.hero{min-height:84vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem;position:relative;overflow:hidden;}
+.hero-glow{width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(239,206,170,0.75) 0%,rgba(220,166,149,0.25) 55%,transparent 75%);position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);animation:pulse 4s ease-in-out infinite;pointer-events:none;}
+@keyframes pulse{0%,100%{opacity:0.75;transform:translate(-50%,-52%) scale(1);}50%{opacity:1;transform:translate(-50%,-52%) scale(1.07);}}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7vw,4.8rem);line-height:1.05;color:var(--terracota);position:relative;}
+.hero h1 .script{display:block;font-family:var(--script);font-size:1.75em;line-height:0.9;color:var(--violeta);margin-top:0.15em;font-weight:400;}
+.hero-sub{font-size:1.02rem;color:var(--texto-suave);margin-top:1.6rem;letter-spacing:0.04em;max-width:430px;line-height:1.9;position:relative;}
+.btn-outline{margin-top:2.6rem;display:inline-block;padding:0.85rem 2.8rem;border:0.5px solid var(--terracota);color:var(--terracota);text-decoration:none;font-size:0.82rem;letter-spacing:0.25em;text-transform:uppercase;transition:all 0.3s;position:relative;background:transparent;cursor:pointer;}
+.btn-outline:hover{background:var(--terracota);color:var(--crema-claro);}
+
+/* Arcos de la paleta */
+.arcos{display:flex;justify-content:center;gap:7px;margin:0 auto 1rem;}
+.arcos span{width:12px;height:12px;border-radius:50%;}
+.arcos span:nth-child(1){background:var(--terracota);}
+.arcos span:nth-child(2){background:var(--rosa);}
+.arcos span:nth-child(3){background:var(--durazno);}
+.arcos span:nth-child(4){background:var(--crema);border:0.5px solid var(--linea);}
+.arcos span:nth-child(5){background:var(--violeta);}
+.hero .arcos{position:relative;margin-top:2.6rem;margin-bottom:0;}
+
+/* ── SECCIONES ── */
+section{padding:5.5rem 3rem;}
+.section-label{font-size:0.78rem;letter-spacing:0.38em;text-transform:uppercase;color:var(--violeta);text-align:center;margin-bottom:0.7rem;}
+.section-title{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,2.8rem);text-align:center;color:var(--terracota);margin-bottom:0.8rem;}
+.section-title em{font-style:italic;color:var(--rosa);}
+.section-intro{text-align:center;color:var(--texto-suave);font-size:1rem;line-height:1.9;max-width:500px;margin:0 auto 3.2rem;}
+
+#mas-pedidos{background:var(--crema);}
+#mas-pedidos .section-intro{margin-bottom:3rem;}
+
+/* ── TARJETAS DE MODELO ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2.6rem 2rem;max-width:1060px;margin:0 auto;}
+.cards.destacados{grid-template-columns:repeat(auto-fit,minmax(250px,300px));justify-content:center;}
+.card{min-width:0;cursor:pointer;text-align:center;background:none;border:none;display:flex;flex-direction:column;align-items:center;outline:none;}
+.card-foto{position:relative;width:100%;aspect-ratio:3/4;border-radius:2px;overflow:hidden;background:var(--crema);border:0.5px solid var(--linea);}
+#mas-pedidos .card-foto{background:var(--crema-claro);}
+.card-foto img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.card:hover .card-foto img,.card:focus-visible .card-foto img{transform:scale(1.04);}
+.card:focus-visible .card-foto{outline:1.5px solid var(--terracota);outline-offset:3px;}
+.card-foto.sin-stock img{opacity:0.55;filter:saturate(0.6) brightness(1.06);}
+.foto-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;color:var(--terracota);background:linear-gradient(180deg,var(--durazno) 0%,var(--crema) 100%);}
+.foto-placeholder .ph-logo{font-family:var(--logo);letter-spacing:0.3em;font-size:1.3rem;padding-left:0.3em;}
+.foto-placeholder .ph-txt{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--texto-suave);}
+.badge{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;padding:0.4rem 0.9rem;background:rgba(250,245,238,0.94);color:var(--terracota);border:0.5px solid var(--linea);}
+.badge.nuevo{background:var(--violeta);color:var(--crema-claro);border-color:var(--violeta);}
+.badge.sin-stock{color:var(--texto-suave);}
+.card-body{padding-top:1.2rem;display:flex;flex-direction:column;align-items:center;gap:0.35rem;}
+.card .tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--violeta);}
+.card h3{font-family:var(--serif);font-weight:400;font-size:1.75rem;color:var(--terracota);line-height:1.1;}
+.card .precio{font-size:0.98rem;color:var(--texto-suave);letter-spacing:0.04em;}
+.card .precio b{font-weight:400;color:var(--texto);}
+.swatches{display:flex;gap:7px;justify-content:center;margin-top:0.35rem;}
+.sw{width:17px;height:17px;border-radius:50%;border:1px solid #d9c9b9;position:relative;}
+.sw.no-stock{opacity:0.45;}
+.sw.no-stock::after{content:'';position:absolute;left:50%;top:50%;width:125%;height:1px;background:var(--texto-suave);transform:translate(-50%,-50%) rotate(-45deg);}
+.ver{margin-top:0.55rem;font-size:0.74rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--terracota);border-bottom:0.5px solid var(--rosa);padding-bottom:2px;transition:border-color 0.3s;}
+.card:hover .ver{border-color:var(--terracota);}
+
+/* Filtros */
+.category-filters{display:flex;justify-content:center;gap:2.2rem;margin:0.6rem auto 3.2rem;}
+.category-filter{background:none;border:none;border-bottom:0.5px solid transparent;padding:0.3rem 0.1rem;font-family:var(--sans);font-weight:300;font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--texto-suave);cursor:pointer;transition:color 0.3s,border-color 0.3s;}
+.category-filter:hover{color:var(--terracota);}
+.category-filter.active{color:var(--terracota);border-bottom-color:var(--terracota);}
+.soon-card{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;aspect-ratio:3/4;padding:2.5rem 1.8rem;background:var(--crema);border-radius:2px;border:0.5px solid var(--linea);}
+.soon-card .tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--violeta);margin-bottom:0.6rem;}
+.soon-card h3{font-family:var(--script);font-weight:400;font-size:3rem;color:var(--terracota);line-height:1;margin-bottom:0.8rem;}
+.soon-card p{font-size:0.92rem;color:var(--texto-suave);line-height:1.8;max-width:240px;}
+.soon-card .soon-star{color:var(--rosa);font-size:1.1rem;margin-bottom:0.8rem;}
+.grid-estado{grid-column:1/-1;text-align:center;color:var(--texto-suave);font-size:0.95rem;padding:2rem 0;}
+
+/* Próximamente banner */
+.coming-soon{background:var(--durazno);text-align:center;padding:1.8rem 2rem;}
+.coming-soon p{font-size:0.95rem;color:var(--texto);letter-spacing:0.06em;line-height:1.8;}
+.coming-soon strong{color:var(--terracota);font-weight:500;}
+
+/* ── DETALLE (se despliega al tocar un modelo) ── */
+.detalle{position:fixed;inset:0;z-index:600;display:none;align-items:center;justify-content:center;padding:2rem;background:rgba(61,42,34,0.55);backdrop-filter:blur(3px);}
+.detalle.open{display:flex;animation:fade 0.25s ease;}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes sube{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.detalle-panel{position:relative;background:var(--blanco);width:100%;max-width:960px;max-height:calc(100vh - 4rem);overflow:auto;display:grid;grid-template-columns:1fr 1fr;border-radius:3px;animation:sube 0.3s ease;}
+.detalle-cerrar{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(250,245,238,0.92);color:var(--terracota);font-size:1rem;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 0.5px var(--linea);}
+.detalle-cerrar:hover{background:var(--crema);}
+
+.product-gallery{position:relative;background:var(--crema);align-self:start;position:sticky;top:0;}
+.gallery-main{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;cursor:zoom-in;}
+.gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
+.gallery-main:hover img{transform:scale(1.03);}
+.gallery-thumbs{display:flex;gap:6px;padding:8px;background:var(--crema);}
+.gallery-thumb{width:0;flex:1;min-height:54px;aspect-ratio:1;overflow:hidden;cursor:pointer;border:1.5px solid transparent;transition:border-color 0.2s;border-radius:1px;padding:0;background:none;}
+.gallery-thumb.active{border-color:var(--terracota);}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;transition:opacity 0.2s;}
+.gallery-thumb:not(.active) img{opacity:0.65;}
+.gallery-thumb:hover img{opacity:1;}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(250,245,238,0.8);color:var(--terracota);border:none;width:32px;height:32px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:background 0.25s;line-height:1;padding:0 0 2px 0;}
+.gallery-nav:hover{background:var(--crema-claro);}
+.gallery-nav-prev{left:10px;}
+.gallery-nav-next{right:10px;}
+.gallery-main .foto-placeholder{cursor:default;}
+.stock-badge{display:none;position:absolute;top:14px;left:14px;z-index:3;background:rgba(250,245,238,0.92);color:var(--texto-suave);font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;padding:0.45rem 0.9rem;border:0.5px solid var(--linea);pointer-events:none;}
+.product-gallery.out-of-stock .stock-badge{display:block;}
+.product-gallery.out-of-stock .gallery-main img,.product-gallery.out-of-stock .gallery-thumb img{opacity:0.5;filter:saturate(0.6) brightness(1.08);}
+
+.product-info{padding:2.2rem 2rem 2rem;}
+.product-tag{font-size:0.76rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--violeta);margin-bottom:0.45rem;}
+.product-name{font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--terracota);margin-bottom:0.8rem;line-height:1.15;padding-right:2rem;}
+.color-selector{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.1rem;flex-wrap:wrap;}
+.color-selector-label{font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--texto-suave);}
+.color-swatch{width:24px;height:24px;border-radius:50%;border:1px solid #d9c9b9;cursor:pointer;padding:0;transition:box-shadow 0.25s,transform 0.25s;position:relative;}
+.color-swatch:hover{transform:scale(1.12);}
+.color-swatch.active{box-shadow:0 0 0 2.5px var(--blanco),0 0 0 4px var(--terracota);}
+.color-swatch.no-stock{opacity:0.45;}
+.color-swatch.no-stock::after{content:'';position:absolute;left:50%;top:50%;width:120%;height:1px;background:var(--texto-suave);transform:translate(-50%,-50%) rotate(-45deg);}
+.color-swatch-name{font-size:0.88rem;color:var(--violeta);font-style:italic;letter-spacing:0.04em;}
+.product-desc{font-size:0.96rem;color:var(--texto-suave);line-height:1.85;margin-bottom:1.2rem;}
+.product-features{list-style:none;margin-bottom:1.4rem;}
+.product-features li{font-size:0.92rem;color:var(--texto-suave);padding:0.34rem 0;border-bottom:0.5px solid var(--crema);display:flex;align-items:center;gap:0.55rem;}
+.product-features li::before{content:'';width:5px;height:6px;border-radius:3px 3px 0 0;background:var(--rosa);flex-shrink:0;}
+.product-subtitle{font-size:0.84rem;color:var(--texto-suave);line-height:1.85;margin-bottom:0.8rem;}
+.product-subtitle strong{color:var(--texto);font-weight:400;}
+.product-detail{border:0.5px solid var(--linea);border-radius:2px;padding:1.1rem 1.2rem;margin-bottom:1.5rem;background:var(--crema-claro);}
+.product-detail-title{font-size:0.78rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--terracota);margin-bottom:0.9rem;}
+.detail-row{display:flex;align-items:flex-start;gap:0.7rem;margin-bottom:0.65rem;font-size:0.92rem;color:var(--texto-suave);line-height:1.6;}
+.detail-row strong{color:var(--texto);font-weight:400;}
+.dimensions-table{width:100%;border-collapse:collapse;margin-top:0.9rem;font-size:0.92rem;}
+.dimensions-table th{text-align:left;padding:0.5rem 0.7rem;background:var(--crema);color:var(--texto);font-weight:400;letter-spacing:0.05em;border:0.5px solid var(--linea);}
+.dimensions-table td{padding:0.5rem 0.7rem;color:var(--texto-suave);border:0.5px solid var(--linea);}
+.product-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.product-price{font-family:var(--serif);font-size:1.65rem;color:var(--terracota);}
+.product-price span{font-size:0.86rem;font-family:var(--sans);color:var(--texto-suave);margin-right:0.15rem;}
+.btn-consult{font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--crema-claro);background:var(--terracota);border:none;padding:0.75rem 1.7rem;cursor:pointer;transition:background 0.3s;text-decoration:none;display:inline-block;}
+.btn-consult:hover{background:var(--terracota-osc);}
+.btn-consult.disabled{background:var(--crema);color:var(--texto-suave);cursor:default;pointer-events:none;}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(40,26,20,0.94);z-index:1000;align-items:center;justify-content:center;padding:1rem;}
+.lightbox.open{display:flex;}
+.lightbox-inner{position:relative;max-width:90vw;max-height:92vh;}
+.lightbox-inner img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:1px;}
+.lightbox-close{position:absolute;top:-14px;right:-14px;width:34px;height:34px;background:var(--terracota);color:var(--crema-claro);border:none;border-radius:50%;font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(151,67,41,0.8);color:var(--crema-claro);border:none;width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lightbox-prev{left:-48px;}
+.lightbox-next{right:-48px;}
+
+/* ── RESEÑAS ── */
+.reviews-section{background:var(--crema-claro);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;max-width:980px;margin:0 auto;}
+.review-card{background:var(--blanco);border:0.5px solid var(--linea);border-radius:2px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem;}
+.review-stars{color:var(--terracota);font-size:1rem;letter-spacing:0.1em;}
+.review-text{font-size:0.97rem;color:var(--texto-suave);line-height:1.85;font-style:italic;}
+.review-author{font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracota);}
+.review-product{font-size:0.8rem;color:var(--violeta);margin-top:-0.5rem;}
+.reviews-avg{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3rem;}
+.reviews-avg-stars{color:var(--terracota);font-size:1.4rem;letter-spacing:0.1em;}
+.reviews-avg-num{font-family:var(--serif);font-size:2.3rem;color:var(--terracota);line-height:1;}
+.reviews-avg-label{font-size:0.82rem;color:var(--texto-suave);letter-spacing:0.1em;}
+.reviews-cta{text-align:center;margin-top:2.6rem;}
+.reviews-cta .btn-outline{margin-top:0;}
+
+/* ── NOSOTROS ── */
+.about-section{background:var(--terracota);color:var(--crema);text-align:center;}
+.about-section .section-label{color:var(--durazno);}
+.about-section .section-title{color:var(--crema-claro);}
+.about-section .section-title em{color:var(--durazno);}
+.about-section > p{color:var(--crema);font-size:1rem;line-height:1.95;max-width:530px;margin:0 auto;opacity:0.92;}
+.about-details{max-width:530px;margin:1.5rem auto 0;display:flex;flex-direction:column;gap:0.7rem;}
+.about-detail-item{font-size:0.95rem;color:var(--rosa);line-height:1.7;display:flex;align-items:flex-start;gap:0.6rem;text-align:left;}
+.about-detail-item strong{color:var(--crema-claro);font-weight:400;}
+.about-detail-item .adi{color:var(--durazno);flex-shrink:0;margin-top:2px;}
+.features-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;max-width:680px;margin:3.5rem auto 0;}
+.feature-item{text-align:center;}
+.feature-icon{font-size:1.2rem;color:var(--durazno);margin-bottom:0.7rem;}
+.feature-item h4{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--crema-claro);margin-bottom:0.35rem;}
+.feature-item p{font-size:0.9rem;color:var(--rosa);margin:0;}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.15em;color:var(--texto-suave);background:var(--crema);}
+.footer-logo{display:inline-flex;margin-bottom:1rem;}
+.footer-links{margin-top:1rem;display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;}
+.footer-links a{text-decoration:none;color:var(--terracota);border-bottom:0.5px solid var(--rosa);padding-bottom:1px;}
+
+.whatsapp-float{position:fixed;bottom:1.8rem;right:1.8rem;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:500;transition:transform 0.3s;box-shadow:0 4px 14px rgba(0,0,0,0.15);}
+.whatsapp-float:hover{transform:scale(1.1);}
+
+/* ── TABLET ── */
+@media(max-width:900px){
+  nav{padding:1rem 2rem;}
+  section{padding:4.5rem 2rem;}
+  .detalle{padding:1.2rem;}
+  .detalle-panel{grid-template-columns:1fr;max-width:560px;max-height:calc(100vh - 2.4rem);}
+  .product-gallery{position:relative;}
+  .lightbox-prev{left:-10px;}
+  .lightbox-next{right:-10px;}
+}
+/* ── CELULAR ── */
+@media(max-width:600px){
+  nav{padding:0.8rem 1.1rem;}
+  .logo-main{font-size:1.35rem;letter-spacing:0.24em;}
+  .logo-sub{font-size:0.66rem;}
+  nav ul{gap:0.95rem;}
+  nav ul a{font-size:0.7rem;letter-spacing:0.08em;}
+  .hero{min-height:78vh;padding:3rem 1.2rem;}
+  .hero-glow{width:280px;height:280px;}
+  .hero-sub{font-size:0.95rem;}
+  .btn-outline{padding:0.85rem 2rem;font-size:0.76rem;}
+  section{padding:3.6rem 1.1rem;}
+  .section-intro{font-size:0.95rem;margin-bottom:2.4rem;}
+  .cards,.cards.destacados{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 0.9rem;}
+  .foto-placeholder .ph-logo{font-size:1rem;}
+  .foto-placeholder .ph-txt{font-size:0.56rem;letter-spacing:0.15em;text-align:center;padding:0 0.6rem;}
+  .card h3{font-size:1.4rem;}
+  .card .precio{font-size:0.88rem;}
+  .card .tag{font-size:0.64rem;letter-spacing:0.22em;}
+  .badge{font-size:0.58rem;letter-spacing:0.18em;padding:0.32rem 0.6rem;bottom:10px;}
+  .ver{font-size:0.66rem;}
+  .soon-card{padding:1.5rem 0.9rem;aspect-ratio:auto;min-height:100%;}
+  .card .precio{line-height:1.4;}
+  .soon-card h3{font-size:2.2rem;}
+  .soon-card p{font-size:0.8rem;line-height:1.6;}
+  .category-filters{gap:1.2rem;margin:0.4rem auto 2.2rem;}
+  .category-filter{font-size:0.74rem;letter-spacing:0.14em;}
+  .detalle{padding:0;align-items:flex-end;}
+  .detalle-panel{max-height:94vh;border-radius:14px 14px 0 0;max-width:100%;}
+  .product-info{padding:1.5rem 1.2rem 1.8rem;}
+  .product-name{font-size:1.7rem;}
+  .detail-row,.dimensions-table{font-size:0.88rem;}
+  .lightbox-prev{left:4px;}
+  .lightbox-next{right:4px;}
+  .lightbox-close{top:-8px;right:-8px;}
+  .features-row{grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .reviews-avg{flex-direction:column;gap:0.5rem;}
+  .coming-soon p{font-size:0.86rem;letter-spacing:0.03em;}
+  footer{padding:2.2rem 1.2rem;font-size:0.78rem;}
+  .whatsapp-float{bottom:1.2rem;right:1.2rem;width:50px;height:50px;}
+}
+@media(max-width:380px){
+  nav ul{gap:0.7rem;}
+  nav ul a{font-size:0.64rem;letter-spacing:0.04em;}
+  .logo-main{font-size:1.2rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Formulario oculto SOLO para que Netlify detecte el form "resenas". No se usa, no se ve. -->
+<form name="resenas" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nombre">
+  <input type="text" name="modelo">
+  <input type="text" name="estrellas">
+  <textarea name="comentario"></textarea>
+  <input name="bot-field">
+</form>
+
+<nav>
+  <a class="logo" href="#" aria-label="LUMUS, inicio">
+    <span class="logo-main">LUMUS</span>
+    <span class="logo-sub">deco e Iluminación</span>
+  </a>
+  <ul>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <h1>Bienvenido/a a tu<span class="script">nuevo rincón favorito</span></h1>
+  <p class="hero-sub">Veladores y objetos de diseño, creados para aportar calidez y estilo a tus espacios.</p>
+  <a href="#productos" class="btn-outline">Ver productos</a>
+  <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+</section>
+
+<section id="mas-pedidos" hidden>
+  <p class="section-label">Favoritos</p>
+  <h2 class="section-title">Los más <em>pedidos</em></h2>
+  <p class="section-intro">Los veladores que más eligen nuestros clientes.</p>
+  <div class="cards destacados" id="destacados-grid"></div>
+</section>
+
+<section id="productos">
+  <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <p class="section-label">Colección</p>
+  <h2 class="section-title">Nuestros diseños</h2>
+
+  <div class="category-filters" role="tablist">
+    <button class="category-filter active" data-filter="todos">Todos</button>
+    <button class="category-filter" data-filter="veladores">Veladores</button>
+    <button class="category-filter" data-filter="decoracion">Decoración</button>
+  </div>
+
+  <div class="cards" id="productos-grid">
+    <p class="grid-estado">Cargando productos…</p>
+  </div>
+</section>
+
+<div class="coming-soon">
+  <p>✦ &nbsp;<strong>Próximamente:</strong> nuevos diseños y colores · Agendanos para estar al tanto de las novedades &nbsp;✦</p>
+</div>
+
+<section id="resenas" class="reviews-section">
+  <h2 class="section-title">Reseñas de <em>clientes</em></h2>
+  <div class="reviews-avg" id="reviews-avg-block">
+    <span class="reviews-avg-num" id="avg-num">—</span>
+    <div>
+      <div class="reviews-avg-stars" id="avg-stars">☆☆☆☆☆</div>
+      <div class="reviews-avg-label" id="avg-label">Cargando reseñas…</div>
+    </div>
+  </div>
+  <div class="reviews-grid" id="reviews-container"></div>
+  <div class="reviews-cta"><a class="btn-outline" href="escribir-resena.html">Dejá tu reseña</a></div>
+</section>
+
+<section id="nosotros" class="about-section">
+  <p class="section-label">Nuestra esencia</p>
+  <h2 class="section-title">Más que <em>decoración</em></h2>
+  <p>En LUMUS creemos que la luz tiene el poder de transformar un espacio y el estado de ánimo. Cada velador está pensado para acompañarte: en las noches de lectura, en las horas de trabajo, en los momentos de descanso.</p>
+  <div class="about-details">
+    <div class="about-detail-item"><span class="adi">✦</span><span>Trabajamos con <strong>stock disponible para entrega inmediata</strong> o por pedido con entrega dentro de las <strong>48 hs</strong>, según disponibilidad.</span></div>
+  </div>
+  <div class="features-row">
+    <div class="feature-item"><div class="feature-icon">✦</div><h4>Lectura</h4><p>Luz cálida ideal para largas noches de libro</p></div>
+    <div class="feature-item"><div class="feature-icon">✦</div><h4>Trabajo</h4><p>Ambiente cómodo sin reflejos ni dureza</p></div>
+    <div class="feature-item"><div class="feature-icon">✦</div><h4>Descanso</h4><p>Crea una atmósfera que invita a relajarse</p></div>
+    <div class="feature-item"><div class="feature-icon">✦</div><h4>Entrega rápida</h4><p>Stock disponible o pedido en 48 hs</p></div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <span class="logo footer-logo"><span class="logo-main">LUMUS</span><span class="logo-sub">deco e Iluminación</span></span>
+  <div>Iluminación de diseño · General Roca, Río Negro</div>
+  <div class="footer-links">
+    <a href="https://wa.me/5492944801830?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20productos%20LUMUS" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.instagram.com/lumus.decohogar/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<!-- Detalle del modelo -->
+<div class="detalle" id="detalle" aria-hidden="true">
+  <div class="detalle-panel" role="dialog" aria-modal="true" aria-labelledby="det-title" id="detalle-panel"></div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lb-close" aria-label="Cerrar">✕</button>
+    <button class="lightbox-prev" id="lb-prev" aria-label="Foto anterior">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-next" id="lb-next" aria-label="Foto siguiente">›</button>
+  </div>
+</div>
+
+<a href="https://wa.me/5492944801830?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20productos%20LUMUS" class="whatsapp-float" target="_blank" rel="noopener" title="Consultar por WhatsApp" aria-label="Consultar por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// Los productos se cargan desde data/productos.json
+// (ese archivo es el que se edita desde el panel /admin)
+// ─────────────────────────────────────────────────────────────
+const WHATSAPP = '5492944801830';
+let productos = [];
+let filtroActual = 'todos';
+let actual = null;   // { p, ci, fi } producto, color y foto que se están mostrando
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const slug = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const fmt = n => Number(n).toLocaleString('es-AR');
+const tienePrecio = c => c && c.precio !== null && c.precio !== undefined && c.precio !== '' && Number(c.precio) > 0;
+const fotosDe = c => (c && Array.isArray(c.fotos) ? c.fotos.filter(Boolean) : []);
+const hayStock = p => p.colores.some(c => c.stock !== false);
+
+function colorInicial(p) {
+  const i = p.colores.findIndex(c => c.stock !== false && fotosDe(c).length);
+  if (i >= 0) return i;
+  const j = p.colores.findIndex(c => c.stock !== false);
+  return j >= 0 ? j : 0;
+}
+function fotoPortada(p) {
+  const c = p.colores[colorInicial(p)];
+  if (fotosDe(c).length) return fotosDe(c)[0];
+  const otro = p.colores.find(x => fotosDe(x).length);
+  return otro ? fotosDe(otro)[0] : null;
+}
+function precioCard(p) {
+  const c = p.colores[colorInicial(p)];
+  return tienePrecio(c) ? '<b>$' + fmt(c.precio) + '</b>' : 'Consultá el precio';
+}
+const placeholder = (txt = 'Fotos próximamente') =>
+  `<div class="foto-placeholder"><span class="ph-logo">LUMUS</span><span class="ph-txt">${txt}</span></div>`;
+
+// ── Tarjetas de la página principal ──
+function cardHTML(p, contexto) {
+  const portada = fotoPortada(p);
+  let badge = '';
+  if (!hayStock(p)) badge = '<span class="badge sin-stock">Sin stock</span>';
+  else if (p.nuevo) badge = '<span class="badge nuevo">Nuevo</span>';
+  else if (p.masPedido && contexto !== 'destacados') badge = '<span class="badge">Más pedido</span>';
+  const swatches = p.colores.map(c =>
+    `<span class="sw${c.stock === false ? ' no-stock' : ''}" style="background:${esc(c.hex || '#eee')}" title="${esc(c.nombre)}${c.stock === false ? ' (sin stock)' : ''}"></span>`
+  ).join('');
+  return `<article class="card" tabindex="0" role="button" data-id="${p.id}" data-cat="${esc(p.categoria)}" aria-label="Ver detalle de ${esc(p.nombre)}">
+    <div class="card-foto${hayStock(p) ? '' : ' sin-stock'}">
+      ${portada ? `<img src="${esc(portada)}" alt="Velador ${esc(p.nombre)}" loading="lazy">` : placeholder()}
+      ${badge}
+    </div>
+    <div class="card-body">
+      <h3>${esc(p.nombre)}</h3>
+      <p class="precio">${precioCard(p)}</p>
+      <div class="swatches" aria-label="Colores disponibles">${swatches}</div>
+      <span class="ver">Ver detalle</span>
+    </div>
+  </article>`;
+}
+
+const soonCard = `<div class="soon-card" data-cat="decoracion">
+  <span class="soon-star">✦</span>
+  <p class="tag">Decoración</p>
+  <h3>Muy pronto</h3>
+  <p>Floreros y nuevos objetos de decoración en camino. Seguinos para enterarte de los próximos lanzamientos.</p>
+</div>`;
+
+function renderProductos() {
+  const grid = document.getElementById('productos-grid');
+  const lista = productos.filter(p => filtroActual === 'todos' || p.categoria === filtroActual);
+  let html = lista.map(p => cardHTML(p, 'grid')).join('');
+  const hayDeco = productos.some(p => p.categoria === 'decoracion');
+  if (!hayDeco && (filtroActual === 'todos' || filtroActual === 'decoracion')) html += soonCard;
+  grid.innerHTML = html || '<p class="grid-estado">Todavía no hay productos en esta categoría.</p>';
+
+  const dest = productos.filter(p => p.masPedido);
+  const sec = document.getElementById('mas-pedidos');
+  sec.hidden = !dest.length;
+  document.getElementById('destacados-grid').innerHTML = dest.map(p => cardHTML(p, 'destacados')).join('');
+}
+
+document.querySelectorAll('.category-filter').forEach(b => b.addEventListener('click', () => {
+  filtroActual = b.dataset.filter;
+  document.querySelectorAll('.category-filter').forEach(x => x.classList.toggle('active', x === b));
+  renderProductos();
+}));
+
+document.addEventListener('click', e => {
+  const card = e.target.closest('.card[data-id]');
+  if (card) abrirDetalle(card.dataset.id, true);
+});
+document.addEventListener('keydown', e => {
+  const card = e.target.closest && e.target.closest('.card[data-id]');
+  if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); abrirDetalle(card.dataset.id, true); }
+});
+
+// ── Detalle desplegable ──
+function tituloDe(p, c) {
+  return `Velador ${p.nombre} ${c.nombre}`;
+}
+function mensajeWhatsApp(p, c) {
+  const que = p.categoria === 'veladores' ? 'el velador ' : 'el ';
+  const nombre = `${p.nombre} ${c.nombre}`;
+  return `https://wa.me/${WHATSAPP}?text=` + encodeURIComponent(`Hola! Me interesa ${que}${nombre} de LUMUS`);
+}
+
+function abrirDetalle(id, pushHistory) {
+  const p = productos.find(x => x.id === id);
+  if (!p) return;
+  actual = { p, ci: colorInicial(p), fi: 0 };
+  const panel = document.getElementById('detalle-panel');
+  const variosColores = p.colores.length > 1;
+
+  panel.innerHTML = `
+    <button class="detalle-cerrar" id="det-cerrar" aria-label="Cerrar">✕</button>
+    <div class="product-gallery" id="det-gallery">
+      <div class="gallery-main" id="det-main">
+        <span class="stock-badge">Sin stock</span>
+        <button class="gallery-nav gallery-nav-prev" data-nav="-1" aria-label="Foto anterior">‹</button>
+        <button class="gallery-nav gallery-nav-next" data-nav="1" aria-label="Foto siguiente">›</button>
+        <div id="det-main-media"></div>
+      </div>
+      <div class="gallery-thumbs" id="det-thumbs"></div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-name" id="det-title"></h3>
+      ${variosColores ? `<div class="color-selector">
+        <span class="color-selector-label">Color</span>
+        ${p.colores.map((c, i) => `<button class="color-swatch${c.stock === false ? ' no-stock' : ''}" data-color="${i}" style="background:${esc(c.hex || '#eee')}" title="${esc(c.nombre)}${c.stock === false ? ' (sin stock)' : ''}" aria-label="Color ${esc(c.nombre)}${c.stock === false ? ', sin stock' : ''}"></button>`).join('')}
+        <span class="color-swatch-name" id="det-color-name"></span>
+      </div>` : ''}
+      <p class="product-desc" id="det-desc"></p>
+      ${(p.caracteristicas || []).filter(Boolean).length ? `<ul class="product-features">${p.caracteristicas.filter(Boolean).map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+      <div class="product-detail">
+        <p class="product-detail-title">Descripción del artículo</p>
+        ${p.material ? `<div class="detail-row"><span><strong>Material:</strong> ${esc(p.material)}</span></div>` : ''}
+        ${p.portaFoco ? `<div class="detail-row"><span><strong>Porta foco:</strong> ${esc(p.portaFoco)}</span></div>` : ''}
+        ${(p.alto || p.ancho) ? `<table class="dimensions-table">
+          <thead><tr><th>Alto</th><th>Ancho</th></tr></thead>
+          <tbody><tr><td>${esc(p.alto || '—')}</td><td>${esc(p.ancho || '—')}</td></tr></tbody>
+        </table>` : ''}
+      </div>
+      <div class="product-footer">
+        <div class="product-price" id="det-price"></div>
+        <a class="btn-consult" id="det-consult" target="_blank" rel="noopener">Consultar</a>
+      </div>
+    </div>`;
+
+  panel.querySelector('#det-cerrar').addEventListener('click', cerrarDetalle);
+  panel.querySelectorAll('[data-color]').forEach(b => b.addEventListener('click', () => elegirColor(+b.dataset.color)));
+  panel.querySelectorAll('[data-nav]').forEach(b => b.addEventListener('click', ev => { ev.stopPropagation(); moverFoto(+b.dataset.nav); }));
+  panel.querySelector('#det-main').addEventListener('click', () => { if (fotosActuales().length) abrirLightbox(); });
+
+  elegirColor(actual.ci);
+  const d = document.getElementById('detalle');
+  d.classList.add('open');
+  d.setAttribute('aria-hidden', 'false');
+  panel.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  if (pushHistory) history.pushState({ lumus: true }, '', '#modelo-' + p.id);
+  setTimeout(() => panel.querySelector('#det-cerrar').focus({ preventScroll: true }), 50);
+}
+
+function fotosActuales() { return fotosDe(actual.p.colores[actual.ci]); }
+
+function elegirColor(i) {
+  const { p } = actual;
+  const c = p.colores[i];
+  actual.ci = i; actual.fi = 0;
+  document.getElementById('det-title').textContent = tituloDe(p, c);
+  const desc = (c.descripcion && c.descripcion.trim()) || p.descripcion || '';
+  const descEl = document.getElementById('det-desc');
+  descEl.textContent = desc;
+  descEl.style.display = desc ? '' : 'none';
+  const nombreColor = document.getElementById('det-color-name');
+  if (nombreColor) nombreColor.textContent = c.stock === false ? `${c.nombre} · Sin stock` : c.nombre;
+  document.querySelectorAll('#detalle-panel [data-color]').forEach(b => b.classList.toggle('active', +b.dataset.color === i));
+  document.getElementById('det-price').innerHTML = tienePrecio(c)
+    ? `<span>precio: $</span>${fmt(c.precio)}`
+    : `<span>precio:</span> a consultar`;
+  const enStock = c.stock !== false;
+  document.getElementById('det-gallery').classList.toggle('out-of-stock', !enStock);
+  const btn = document.getElementById('det-consult');
+  btn.classList.toggle('disabled', !enStock);
+  btn.textContent = enStock ? 'Consultar' : 'Sin stock';
+  if (enStock) btn.href = mensajeWhatsApp(p, c); else btn.removeAttribute('href');
+
+  const fotos = fotosActuales();
+  document.getElementById('det-thumbs').innerHTML = fotos.length > 1
+    ? fotos.map((f, k) => `<button class="gallery-thumb${k === 0 ? ' active' : ''}" data-thumb="${k}" aria-label="Foto ${k + 1}"><img src="${esc(f)}" alt=""></button>`).join('')
+    : '';
+  document.getElementById('det-thumbs').style.display = fotos.length > 1 ? '' : 'none';
+  document.querySelectorAll('#det-thumbs [data-thumb]').forEach(t => t.addEventListener('click', () => mostrarFoto(+t.dataset.thumb)));
+  document.querySelectorAll('#det-main .gallery-nav').forEach(b => b.style.display = fotos.length > 1 ? '' : 'none');
+  document.getElementById('det-main').style.cursor = fotos.length ? 'zoom-in' : 'default';
+  mostrarFoto(0);
+}
+
+function mostrarFoto(k) {
+  const fotos = fotosActuales();
+  actual.fi = k;
+  const media = document.getElementById('det-main-media');
+  media.innerHTML = fotos.length
+    ? `<img src="${esc(fotos[k])}" alt="${esc(tituloDe(actual.p, actual.p.colores[actual.ci]))}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">`
+    : placeholder();
+  media.style.cssText = 'position:absolute;inset:0;';
+  document.querySelectorAll('#det-thumbs .gallery-thumb').forEach((t, i) => t.classList.toggle('active', i === k));
+}
+function moverFoto(dir) {
+  const n = fotosActuales().length;
+  if (n) mostrarFoto((actual.fi + dir + n) % n);
+}
+
+function cerrarDetalle() {
+  if (history.state && history.state.lumus) { history.back(); return; }
+  history.replaceState(null, '', location.pathname + location.search);
+  ocultarDetalle();
+}
+function ocultarDetalle() {
+  const d = document.getElementById('detalle');
+  if (!d.classList.contains('open')) return;
+  d.classList.remove('open');
+  d.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  actual = null;
+}
+function sincronizarConHash() {
+  const m = location.hash.match(/^#modelo-(.+)$/);
+  if (m && productos.some(p => p.id === m[1])) {
+    if (!actual || actual.p.id !== m[1]) abrirDetalle(m[1], false);
+  } else {
+    cerrarLightbox();
+    ocultarDetalle();
+  }
+}
+window.addEventListener('popstate', sincronizarConHash);
+document.getElementById('detalle').addEventListener('click', e => { if (e.target.id === 'detalle') cerrarDetalle(); });
+
+// ── Lightbox ──
+function abrirLightbox() {
+  document.getElementById('lightbox-img').src = fotosActuales()[actual.fi];
+  document.getElementById('lightbox').classList.add('open');
+}
+function cerrarLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+function lightboxNav(dir) {
+  moverFoto(dir);
+  document.getElementById('lightbox-img').src = fotosActuales()[actual.fi];
+}
+document.getElementById('lb-close').addEventListener('click', cerrarLightbox);
+document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); lightboxNav(-1); });
+document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); lightboxNav(1); });
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target.id === 'lightbox') cerrarLightbox(); });
+
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox').classList.contains('open');
+  if (lb) {
+    if (e.key === 'Escape') cerrarLightbox();
+    if (e.key === 'ArrowRight') lightboxNav(1);
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    return;
+  }
+  if (actual) {
+    if (e.key === 'Escape') cerrarDetalle();
+    if (e.key === 'ArrowRight') moverFoto(1);
+    if (e.key === 'ArrowLeft') moverFoto(-1);
+  }
+});
+
+// ── Carga inicial ──
+fetch('data/productos.json', { cache: 'no-cache' })
+  .then(r => r.json())
+  .then(data => {
+    productos = (data.productos || [])
+      .filter(p => p && p.nombre && p.visible !== false)
+      .map(p => ({ ...p, id: slug(p.nombre), categoria: p.categoria || 'veladores', colores: (p.colores || []).filter(c => c && c.nombre) }))
+      .filter(p => p.colores.length);
+    renderProductos();
+    sincronizarConHash();
+  })
+  .catch(() => {
+    document.getElementById('productos-grid').innerHTML = '<p class="grid-estado">No pudimos cargar los productos. Escribinos por WhatsApp y te contamos.</p>';
+  });
+
+// ── Reseñas (Netlify Function) ──
+async function loadReviews() {
+  const label = document.getElementById('avg-label');
+  try {
+    const res = await fetch('/.netlify/functions/reviews');
+    if (!res.ok) throw new Error();
+    const reviews = (await res.json()).filter(r => r && r.comentario);
+    if (!reviews.length) throw new Error('vacío');
+    document.getElementById('reviews-container').innerHTML = reviews.map(r => {
+      const n = Math.max(0, Math.min(5, parseInt(r.estrellas, 10) || 0));
+      return `<div class="review-card">
+        <div class="review-stars">${'★'.repeat(n)}${'☆'.repeat(5 - n)}</div>
+        <p class="review-text">"${esc(r.comentario)}"</p>
+        <p class="review-author">${esc(r.nombre)}</p>
+        ${r.modelo ? `<p class="review-product">Modelo ${esc(r.modelo)}</p>` : ''}
+      </div>`;
+    }).join('');
+    const avg = reviews.reduce((s, r) => s + (parseInt(r.estrellas, 10) || 0), 0) / reviews.length;
+    document.getElementById('avg-num').textContent = avg.toFixed(1);
+    document.getElementById('avg-stars').textContent = '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg));
+    label.textContent = `Basado en ${reviews.length} reseña${reviews.length !== 1 ? 's' : ''}`;
+  } catch (e) {
+    document.getElementById('avg-num').textContent = '';
+    document.getElementById('avg-stars').style.display = 'none';
+    document.getElementById('reviews-avg-block').style.marginBottom = '0';
+    label.textContent = 'Todavía no hay reseñas publicadas. ¡Contanos qué te pareció tu velador!';
+  }
+}
+loadReviews();
+</script>
+</body>
+</html>

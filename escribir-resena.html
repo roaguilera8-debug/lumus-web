@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMUS — Dejá tu reseña</title>
+<meta name="theme-color" content="#974329">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Gilda+Display&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--terracota:#974329;--terracota-osc:#7a3420;--rosa:#DCA695;--durazno:#EFCEAA;--crema:#F1E9DE;--crema-claro:#FAF5EE;--violeta:#975A84;--texto:#3d2a22;--texto-suave:#6e5248;--linea:#e6d6c6;--blanco:#fffdfa;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;font-weight:300;font-size:17px;background:var(--crema-claro);color:var(--texto);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1.5rem;}
+.wrap{width:100%;max-width:520px;}
+.logo{display:flex;flex-direction:column;align-items:center;text-decoration:none;line-height:1;margin-bottom:2.4rem;}
+.logo-main{font-family:'Cinzel',serif;font-size:1.9rem;letter-spacing:0.3em;padding-left:0.3em;color:var(--terracota);}
+.logo-sub{font-family:'Gilda Display',serif;font-size:0.82rem;color:var(--terracota);border-top:0.5px solid var(--terracota);margin-top:0.4rem;padding-top:0.3rem;}
+.card{background:var(--blanco);border:0.5px solid var(--linea);border-radius:2px;padding:2.5rem 2rem;}
+.form-title{font-family:'Gilda Display',serif;font-weight:400;font-size:1.8rem;color:var(--terracota);text-align:center;margin-bottom:0.5rem;}
+.form-sub{font-size:0.88rem;color:var(--texto-suave);text-align:center;line-height:1.7;margin-bottom:2rem;letter-spacing:0.03em;}
+.rf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.rf-field{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.2rem;}
+.rf-field label{font-size:0.76rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--texto-suave);}
+.rf-field input,.rf-field select,.rf-field textarea{font-family:'Jost',sans-serif;font-size:0.95rem;font-weight:300;color:var(--texto);background:var(--crema-claro);border:0.5px solid var(--linea);padding:0.7rem 0.9rem;outline:none;transition:border-color 0.2s;resize:none;width:100%;border-radius:0;}
+.rf-field input:focus,.rf-field select:focus,.rf-field textarea:focus{border-color:var(--terracota);}
+.star-rating{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:6px;padding:0.3rem 0;}
+.star-rating input{display:none;}
+.star-rating label{font-size:2rem;color:var(--linea);cursor:pointer;transition:color 0.15s;line-height:1;letter-spacing:0;text-transform:none;}
+.star-rating input:checked ~ label,.star-rating label:hover,.star-rating label:hover ~ label{color:var(--terracota);}
+.btn{font-family:'Jost',sans-serif;font-size:0.84rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--crema-claro);background:var(--terracota);border:none;padding:0.85rem 2rem;cursor:pointer;transition:background 0.3s;width:100%;margin-top:0.5rem;}
+.btn:hover{background:var(--terracota-osc);}
+.btn:disabled{opacity:0.6;cursor:default;}
+.error{display:none;color:var(--terracota);font-size:0.88rem;text-align:center;margin-top:1rem;}
+.success{display:none;text-align:center;padding:2rem 1rem;}
+.success-icon{font-size:2rem;color:var(--violeta);margin-bottom:1rem;}
+.success h2{font-family:'Gilda Display',serif;font-weight:400;font-size:2rem;color:var(--terracota);margin-bottom:0.8rem;}
+.success p{font-size:0.95rem;color:var(--texto-suave);line-height:1.8;margin-bottom:1.8rem;}
+.btn-link{display:inline-block;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracota);background:transparent;border:0.5px solid var(--terracota);padding:0.75rem 2rem;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.btn-link:hover{background:var(--terracota);color:var(--crema-claro);}
+.volver{display:block;text-align:center;margin-top:1.6rem;font-size:0.8rem;letter-spacing:0.15em;color:var(--texto-suave);text-decoration:none;}
+.volver:hover{color:var(--terracota);}
+@media(max-width:500px){.rf-row{grid-template-columns:1fr;}.card{padding:1.8rem 1.3rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="logo" href="index.html"><span class="logo-main">LUMUS</span><span class="logo-sub">deco e Iluminación</span></a>
+
+  <div class="card">
+    <div id="form-wrap">
+      <h1 class="form-title">Dejá tu reseña</h1>
+      <p class="form-sub">Tu opinión nos ayuda a seguir mejorando y le sirve a otros compradores. ¡Gracias por tomarte el tiempo!</p>
+
+      <form name="resenas" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="review-form">
+        <input type="hidden" name="form-name" value="resenas">
+        <p hidden><label>No completar: <input name="bot-field"></label></p>
+
+        <div class="rf-row">
+          <div class="rf-field">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Valentina M." required>
+          </div>
+          <div class="rf-field">
+            <label for="modelo">Modelo comprado</label>
+            <select id="modelo" name="modelo" required>
+              <option value="">Seleccioná</option>
+              <option value="Fungi">Fungi</option>
+              <option value="Wave">Wave</option>
+              <option value="Block">Block</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="rf-field">
+          <label>Calificación</label>
+          <div class="star-rating">
+            <input type="radio" id="s5" name="estrellas" value="5" required><label for="s5">★</label>
+            <input type="radio" id="s4" name="estrellas" value="4"><label for="s4">★</label>
+            <input type="radio" id="s3" name="estrellas" value="3"><label for="s3">★</label>
+            <input type="radio" id="s2" name="estrellas" value="2"><label for="s2">★</label>
+            <input type="radio" id="s1" name="estrellas" value="1"><label for="s1">★</label>
+          </div>
+        </div>
+
+        <div class="rf-field">
+          <label for="comentario">Comentario</label>
+          <textarea id="comentario" name="comentario" rows="4" placeholder="Contanos tu experiencia con el velador…" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Enviar reseña</button>
+        <p class="error" id="error-msg">Hubo un error al enviar. Intentá de nuevo.</p>
+      </form>
+    </div>
+
+    <div class="success" id="success-msg">
+      <div class="success-icon">✦</div>
+      <h2>¡Muchas gracias!</h2>
+      <p>Tu reseña fue enviada con éxito y aparecerá en nuestra página pronto.</p>
+      <a href="index.html" class="btn-link">Ir a la página principal</a>
+    </div>
+  </div>
+  <a class="volver" href="index.html">← Volver a LUMUS</a>
+</div>
+
+<script>
+// Completa la lista de modelos con los productos cargados en data/productos.json
+fetch('data/productos.json', { cache: 'no-cache' })
+  .then(r => r.json())
+  .then(d => {
+    const nombres = (d.productos || []).filter(p => p && p.nombre && p.visible !== false).map(p => p.nombre);
+    if (!nombres.length) return;
+    const sel = document.getElementById('modelo');
+    sel.innerHTML = '<option value="">Seleccioná</option>' + nombres.map(n => {
+      const o = document.createElement('option'); o.value = n; o.textContent = n; return o.outerHTML;
+    }).join('');
+  })
+  .catch(() => {});
+
+document.getElementById('review-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const btn = this.querySelector('.btn');
+  btn.disabled = true;
+  document.getElementById('error-msg').style.display = 'none';
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(this)).toString()
+    });
+    if (!res.ok) throw new Error();
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  } catch {
+    document.getElementById('error-msg').style.display = 'block';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

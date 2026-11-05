@@ -1,0 +1,71 @@
+# Panel de administración de LUMUS (Decap CMS)
+backend:
+  name: github
+  repo: roaguilera8-debug/lumus-web
+  branch: main
+  site_domain: lumus-decora.netlify.app
+
+locale: es
+site_url: https://lumus-decora.netlify.app
+display_url: https://lumus-decora.netlify.app
+
+media_folder: fotos
+public_folder: /fotos
+
+collections:
+  - name: catalogo
+    label: Catálogo
+    editor:
+      preview: false
+    files:
+      - name: productos
+        label: Productos
+        file: data/productos.json
+        format: json
+        fields:
+          - label: Productos
+            name: productos
+            widget: list
+            label_singular: producto
+            summary: "{{fields.nombre}}"
+            collapsed: true
+            fields:
+              - { label: "Nombre del modelo", name: nombre, widget: string, hint: "Ej: Fungi" }
+              - label: Categoría
+                name: categoria
+                widget: select
+                default: veladores
+                options:
+                  - { label: Veladores, value: veladores }
+                  - { label: Decoración, value: decoracion }
+              - { label: "Mostrar en la página", name: visible, widget: boolean, default: true, hint: "Apagalo para ocultar el producto sin borrarlo" }
+              - { label: "Aparece en «Los más pedidos»", name: masPedido, widget: boolean, default: false }
+              - { label: "Etiqueta «Nuevo»", name: nuevo, widget: boolean, default: false }
+              - { label: "Descripción", name: descripcion, widget: text, required: false, hint: "Terminala con: Velador de mesa impreso en 3D." }
+              - label: Características
+                name: caracteristicas
+                widget: list
+                required: false
+                field: { label: "Característica", name: item, widget: string }
+              - { label: "Material", name: material, widget: string, required: false, default: "PLA, plástico biodegradable de origen vegetal, utilizado para impresión en 3D." }
+              - { label: "Porta foco", name: portaFoco, widget: string, required: false, default: "E27. Incluye foco cálido estándar 5,5 W." }
+              - { label: "Alto", name: alto, widget: string, required: false, hint: "Ej: 19 cm" }
+              - { label: "Ancho", name: ancho, widget: string, required: false, hint: "Ej: 9 cm" }
+              - label: Colores
+                name: colores
+                widget: list
+                label_singular: color
+                summary: "{{fields.nombre}} · ${{fields.precio}}"
+                hint: "Cada color tiene su precio, su stock y sus fotos"
+                fields:
+                  - { label: "Nombre del color", name: nombre, widget: string, hint: "Ej: Lila" }
+                  - { label: "Color (muestra)", name: hex, widget: color, default: "#f6f1ea" }
+                  - { label: "Precio (sin puntos)", name: precio, widget: number, value_type: int, required: false, hint: "Ej: 28000. Si lo dejás vacío dice «precio a consultar»" }
+                  - { label: "Hay stock", name: stock, widget: boolean, default: true }
+                  - { label: "Descripción para este color (opcional)", name: descripcion, widget: text, required: false, hint: "Si la dejás vacía, se usa la descripción general del modelo" }
+                  - label: Fotos
+                    name: fotos
+                    widget: list
+                    required: false
+                    hint: "La primera foto es la que se ve en la página principal"
+                    field: { label: "Foto", name: foto, widget: image }

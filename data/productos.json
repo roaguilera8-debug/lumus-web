@@ -1,0 +1,119 @@
+{
+  "productos": [
+    {
+      "nombre": "Fungi",
+      "categoria": "veladores",
+      "visible": true,
+      "masPedido": true,
+      "nuevo": false,
+      "descripcion": "Forma redondeada inspirada en la naturaleza. Irradia una luz cálida y envolvente que convierte cualquier rincón en un refugio. Velador de mesa impreso en 3D.",
+      "caracteristicas": [
+        "Foco cálido incluido",
+        "Cable con interruptor",
+        "Ideal para mesita de noche o escritorio",
+        "Diseño compacto y estable"
+      ],
+      "material": "PLA, plástico biodegradable de origen vegetal, utilizado para impresión en 3D.",
+      "portaFoco": "E27. Incluye foco cálido estándar 5,5 W.",
+      "alto": "17 cm",
+      "ancho": "16 cm",
+      "colores": [
+        {
+          "nombre": "Blanco",
+          "hex": "#f6f1ea",
+          "precio": 27000,
+          "stock": true,
+          "fotos": [
+            "/fotos/fungi-blanco-1.jpg",
+            "/fotos/fungi-blanco-2.jpg",
+            "/fotos/fungi-blanco-3.jpg"
+          ],
+          "descripcion": ""
+        },
+        {
+          "nombre": "Salmón",
+          "hex": "#d17760",
+          "precio": 28000,
+          "stock": false,
+          "fotos": [
+            "/fotos/fungi-salmon-1.jpg",
+            "/fotos/fungi-salmon-2.jpg",
+            "/fotos/fungi-salmon-3.jpg"
+          ],
+          "descripcion": ""
+        },
+        {
+          "nombre": "Lila",
+          "hex": "#c7a6dd",
+          "precio": 28000,
+          "stock": true,
+          "fotos": [
+            "/fotos/fungi-lila-1.jpg",
+            "/fotos/fungi-lila-2.jpg",
+            "/fotos/fungi-lila-3.jpg"
+          ],
+          "descripcion": ""
+        }
+      ]
+    },
+    {
+      "nombre": "Wave",
+      "categoria": "veladores",
+      "visible": true,
+      "masPedido": true,
+      "nuevo": false,
+      "descripcion": "Silueta alta y ondulada con estrías verticales que generan un juego de luces y sombras hipnótico. Presencia imponente y delicada a la vez. Velador de mesa impreso en 3D.",
+      "caracteristicas": [
+        "Foco cálido incluido",
+        "Cable con interruptor",
+        "Base estable de apoyo",
+        "Perfecta como pieza central o de ambiente"
+      ],
+      "material": "PLA, plástico biodegradable de origen vegetal, utilizado para impresión en 3D.",
+      "portaFoco": "E27. Incluye foco cálido estándar 5,5 W.",
+      "alto": "25 cm",
+      "ancho": "14 cm",
+      "colores": [
+        {
+          "nombre": "Blanco",
+          "hex": "#f6f1ea",
+          "precio": 25500,
+          "stock": true,
+          "fotos": [
+            "/fotos/wave-blanco-1.jpg",
+            "/fotos/wave-blanco-2.jpg",
+            "/fotos/wave-blanco-3.jpg"
+          ],
+          "descripcion": ""
+        }
+      ]
+    },
+    {
+      "nombre": "Block",
+      "categoria": "veladores",
+      "visible": true,
+      "masPedido": false,
+      "nuevo": true,
+      "descripcion": "Velador de mesa impreso en 3D.",
+      "caracteristicas": [],
+      "material": "PLA, plástico biodegradable de origen vegetal, utilizado para impresión en 3D.",
+      "portaFoco": "E27. Incluye foco cálido estándar 5,5 W.",
+      "alto": "19 cm",
+      "ancho": "9 cm",
+      "colores": [
+        {
+          "nombre": "Blanco",
+          "hex": "#f6f1ea",
+          "precio": 25500,
+          "stock": true,
+          "fotos": [
+            "/fotos/block-blanco-1.jpg",
+            "/fotos/block-blanco-2.jpg",
+            "/fotos/block-blanco-3.jpg"
+          ],
+          "descripcion": ""
+        }
+      ]
+    }
+  ]
+}
