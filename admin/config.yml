@@ -14,7 +14,7 @@ public_folder: /fotos
 
 collections:
   - name: catalogo
-    label: Catálogo
+    label: Catálogo de productos
     editor:
       preview: false
     files:
@@ -39,7 +39,6 @@ collections:
                   - { label: Veladores, value: veladores }
                   - { label: Decoración, value: decoracion }
               - { label: "Mostrar en la página", name: visible, widget: boolean, default: true, hint: "Apagalo para ocultar el producto sin borrarlo" }
-              - { label: "Aparece en «Los más pedidos»", name: masPedido, widget: boolean, default: false }
               - { label: "Etiqueta «Nuevo»", name: nuevo, widget: boolean, default: false }
               - { label: "Descripción", name: descripcion, widget: text, required: false, hint: "Terminala con: Velador de mesa impreso en 3D." }
               - label: Características
@@ -69,3 +68,107 @@ collections:
                     required: false
                     hint: "La primera foto es la que se ve en la página principal"
                     field: { label: "Foto", name: foto, widget: image }
+
+  - name: secciones
+    label: Textos de la página
+    editor:
+      preview: false
+    files:
+      - name: contenido
+        label: Secciones (Catálogo, Información, Cómo comprar, Nuestra esencia, Contacto)
+        file: data/contenido.json
+        format: json
+        fields:
+          - label: "Portada (arriba del catálogo)"
+            name: inicio
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Título destacado (letra manuscrita)", name: tituloDestacado, widget: string }
+              - { label: "Subtítulo", name: subtitulo, widget: text }
+          - label: "Catálogo"
+            name: catalogo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Etiqueta chiquita", name: etiqueta, widget: string, required: false }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Franja de aviso (dejala vacía para ocultarla)", name: aviso, widget: string, required: false }
+          - label: "Información importante"
+            name: info
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Etiqueta chiquita", name: etiqueta, widget: string, required: false }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Título destacado (en cursiva)", name: tituloDestacado, widget: string, required: false }
+              - { label: "Introducción", name: intro, widget: text, required: false }
+              - label: "Tarjetas"
+                name: items
+                widget: list
+                label_singular: tarjeta
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: titulo, widget: string }
+                  - { label: "Texto", name: texto, widget: text }
+          - label: "Cómo comprar"
+            name: comprar
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Etiqueta chiquita", name: etiqueta, widget: string, required: false }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Título destacado (en cursiva)", name: tituloDestacado, widget: string, required: false }
+              - label: "Compra minorista"
+                name: minorista
+                widget: object
+                fields:
+                  - { label: "Nombre de la pestaña", name: pestana, widget: string }
+                  - { label: "Introducción", name: intro, widget: text, required: false }
+                  - label: "Pasos"
+                    name: pasos
+                    widget: list
+                    label_singular: paso
+                    summary: "{{fields.titulo}}"
+                    fields:
+                      - { label: "Título", name: titulo, widget: string }
+                      - { label: "Texto", name: texto, widget: text }
+                  - { label: "Texto del botón", name: boton, widget: string }
+              - label: "Compra mayorista"
+                name: mayorista
+                widget: object
+                fields:
+                  - { label: "Nombre de la pestaña", name: pestana, widget: string }
+                  - { label: "Introducción", name: intro, widget: text, required: false }
+                  - label: "Condiciones"
+                    name: items
+                    widget: list
+                    field: { label: "Condición", name: item, widget: text }
+                  - { label: "Texto del botón", name: boton, widget: string }
+                  - { label: "Mensaje que se abre en WhatsApp", name: mensajeWhatsapp, widget: string }
+          - label: "Nuestra esencia"
+            name: esencia
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Etiqueta chiquita", name: etiqueta, widget: string, required: false }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Título destacado (en cursiva)", name: tituloDestacado, widget: string, required: false }
+              - { label: "Texto", name: texto, widget: text }
+              - label: "Ítems"
+                name: items
+                widget: list
+                label_singular: ítem
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: "Título", name: titulo, widget: string }
+                  - { label: "Texto", name: texto, widget: string }
+          - label: "Contacto"
+            name: contacto
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "WhatsApp (con código de país, sin + ni espacios)", name: whatsapp, widget: string, hint: "Ej: 5492944801830" }
+              - { label: "Usuario de Instagram (sin @)", name: instagram, widget: string }
+              - { label: "Texto del pie de página", name: ubicacion, widget: string }

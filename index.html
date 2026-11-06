@@ -6,6 +6,8 @@
 <title>LUMUS — Deco e iluminación de diseño</title>
 <meta name="description" content="Veladores y objetos de diseño impresos en 3D, creados para aportar calidez y estilo a tus espacios. General Roca, Río Negro.">
 <meta name="theme-color" content="#974329">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="fotos/logo-lumus-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Gilda+Display&family=Jost:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
@@ -35,19 +37,50 @@ button{font:inherit;color:inherit;}
 a{color:inherit;}
 
 /* ── NAV ── */
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;position:sticky;top:0;background:rgba(250,245,238,0.94);backdrop-filter:blur(10px);z-index:100;border-bottom:0.5px solid var(--linea);}
-.logo{text-decoration:none;display:flex;flex-direction:column;align-items:center;line-height:1;}
-.logo-main{font-family:var(--logo);font-weight:400;font-size:1.75rem;letter-spacing:0.3em;color:var(--terracota);padding-left:0.3em;}
-.logo-sub{font-family:var(--serif);font-size:0.78rem;color:var(--terracota);border-top:0.5px solid var(--terracota);margin-top:0.35rem;padding-top:0.25rem;letter-spacing:0.04em;}
+nav{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:0.6rem 3rem;position:sticky;top:0;background:rgba(250,245,238,0.94);backdrop-filter:blur(10px);z-index:100;border-bottom:0.5px solid var(--linea);}
+.logo{text-decoration:none;display:flex;align-items:center;flex-shrink:0;}
+.logo img{width:58px;height:58px;display:block;}
 nav ul{list-style:none;display:flex;gap:2.4rem;}
-nav ul a{text-decoration:none;color:var(--texto-suave);font-size:0.84rem;letter-spacing:0.2em;text-transform:uppercase;transition:color 0.3s;}
+nav ul a{text-decoration:none;color:var(--texto-suave);font-size:0.8rem;letter-spacing:0.18em;text-transform:uppercase;transition:color 0.3s,border-color 0.3s;white-space:nowrap;padding:0.35rem 0;border-bottom:1px solid transparent;}
 nav ul a:hover{color:var(--terracota);}
+nav ul a.active{color:var(--terracota);border-bottom-color:var(--terracota);}
+nav ul{gap:2rem;}
+
+/* ── VISTAS (cada sección es una "página") ── */
+main{min-height:calc(100vh - 230px);}
+.view{animation:fade 0.35s ease;}
+.page{padding-top:4.5rem;padding-bottom:5.5rem;}
+#v-esencia .about-section{min-height:calc(100vh - 230px);display:flex;flex-direction:column;justify-content:center;}
+
+/* ── INFORMACIÓN IMPORTANTE ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;max-width:1000px;margin:0 auto;}
+.info-card{background:var(--blanco);border:0.5px solid var(--linea);border-radius:2px;padding:2.2rem 1.8rem;text-align:center;}
+.info-icon{width:46px;height:46px;border-radius:50%;background:var(--crema);color:var(--terracota);display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem;font-size:1rem;}
+.info-card h3{font-family:var(--serif);font-weight:400;font-size:1.45rem;color:var(--terracota);margin-bottom:0.7rem;}
+.info-card p{font-size:0.95rem;color:var(--texto-suave);line-height:1.8;}
+
+/* ── CÓMO COMPRAR ── */
+.buy-tabs{display:flex;justify-content:center;gap:0;margin:0.6rem auto 2.8rem;border:0.5px solid var(--terracota);width:max-content;max-width:100%;}
+.buy-tab{background:none;border:none;padding:0.75rem 1.8rem;font-family:var(--sans);font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terracota);cursor:pointer;transition:background 0.3s,color 0.3s;}
+.buy-tab.active{background:var(--terracota);color:var(--crema-claro);}
+.buy-panel{max-width:760px;margin:0 auto;animation:fade 0.3s ease;}
+.buy-intro{text-align:center;color:var(--texto-suave);font-size:1rem;line-height:1.85;margin-bottom:2.2rem;}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.6rem;counter-reset:paso;}
+.steps li{counter-increment:paso;background:var(--blanco);border:0.5px solid var(--linea);padding:2rem 1.5rem 1.8rem;text-align:center;border-radius:2px;}
+.steps li::before{content:counter(paso);display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--terracota);color:var(--crema-claro);font-family:var(--serif);font-size:1.25rem;margin:0 auto 1rem;}
+.steps h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--terracota);margin-bottom:0.55rem;}
+.steps p{font-size:0.93rem;color:var(--texto-suave);line-height:1.75;}
+.wholesale-list{list-style:none;background:var(--blanco);border:0.5px solid var(--linea);border-radius:2px;padding:1.2rem 2rem;}
+.wholesale-list li{display:flex;gap:0.9rem;align-items:flex-start;padding:0.95rem 0;border-bottom:0.5px solid var(--crema);font-size:0.97rem;color:var(--texto-suave);line-height:1.7;}
+.wholesale-list li:last-child{border-bottom:none;}
+.wholesale-list li::before{content:'✦';color:var(--rosa);flex-shrink:0;}
+.buy-cta{text-align:center;margin-top:2.4rem;}
 
 /* ── HERO ── */
-.hero{min-height:84vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem;position:relative;overflow:hidden;}
+.hero{min-height:auto;padding-top:4.5rem !important;padding-bottom:2rem !important;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 2rem;position:relative;overflow:hidden;}
 .hero-glow{width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(239,206,170,0.75) 0%,rgba(220,166,149,0.25) 55%,transparent 75%);position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);animation:pulse 4s ease-in-out infinite;pointer-events:none;}
 @keyframes pulse{0%,100%{opacity:0.75;transform:translate(-50%,-52%) scale(1);}50%{opacity:1;transform:translate(-50%,-52%) scale(1.07);}}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7vw,4.8rem);line-height:1.05;color:var(--terracota);position:relative;}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5.5vw,3.9rem);line-height:1.05;color:var(--terracota);position:relative;}
 .hero h1 .script{display:block;font-family:var(--script);font-size:1.75em;line-height:0.9;color:var(--violeta);margin-top:0.15em;font-weight:400;}
 .hero-sub{font-size:1.02rem;color:var(--texto-suave);margin-top:1.6rem;letter-spacing:0.04em;max-width:430px;line-height:1.9;position:relative;}
 .btn-outline{margin-top:2.6rem;display:inline-block;padding:0.85rem 2.8rem;border:0.5px solid var(--terracota);color:var(--terracota);text-decoration:none;font-size:0.82rem;letter-spacing:0.25em;text-transform:uppercase;transition:all 0.3s;position:relative;background:transparent;cursor:pointer;}
@@ -70,15 +103,11 @@ section{padding:5.5rem 3rem;}
 .section-title em{font-style:italic;color:var(--rosa);}
 .section-intro{text-align:center;color:var(--texto-suave);font-size:1rem;line-height:1.9;max-width:500px;margin:0 auto 3.2rem;}
 
-#mas-pedidos{background:var(--crema);}
-#mas-pedidos .section-intro{margin-bottom:3rem;}
 
 /* ── TARJETAS DE MODELO ── */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2.6rem 2rem;max-width:1060px;margin:0 auto;}
-.cards.destacados{grid-template-columns:repeat(auto-fit,minmax(250px,300px));justify-content:center;}
 .card{min-width:0;cursor:pointer;text-align:center;background:none;border:none;display:flex;flex-direction:column;align-items:center;outline:none;}
 .card-foto{position:relative;width:100%;aspect-ratio:3/4;border-radius:2px;overflow:hidden;background:var(--crema);border:0.5px solid var(--linea);}
-#mas-pedidos .card-foto{background:var(--crema-claro);}
 .card-foto img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
 .card:hover .card-foto img,.card:focus-visible .card-foto img{transform:scale(1.04);}
 .card:focus-visible .card-foto{outline:1.5px solid var(--terracota);outline-offset:3px;}
@@ -207,12 +236,12 @@ section{padding:5.5rem 3rem;}
 .about-section .section-label{color:var(--durazno);}
 .about-section .section-title{color:var(--crema-claro);}
 .about-section .section-title em{color:var(--durazno);}
-.about-section > p{color:var(--crema);font-size:1rem;line-height:1.95;max-width:530px;margin:0 auto;opacity:0.92;}
+.about-section > p#c-esencia-texto,.about-section > p:not(.section-label){color:var(--crema);font-size:1rem;line-height:1.95;max-width:530px;margin:0 auto;opacity:0.92;}
 .about-details{max-width:530px;margin:1.5rem auto 0;display:flex;flex-direction:column;gap:0.7rem;}
 .about-detail-item{font-size:0.95rem;color:var(--rosa);line-height:1.7;display:flex;align-items:flex-start;gap:0.6rem;text-align:left;}
 .about-detail-item strong{color:var(--crema-claro);font-weight:400;}
 .about-detail-item .adi{color:var(--durazno);flex-shrink:0;margin-top:2px;}
-.features-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;max-width:680px;margin:3.5rem auto 0;}
+.features-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;max-width:620px;margin:3.5rem auto 0;}
 .feature-item{text-align:center;}
 .feature-icon{font-size:1.2rem;color:var(--durazno);margin-bottom:0.7rem;}
 .feature-item h4{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--crema-claro);margin-bottom:0.35rem;}
@@ -220,7 +249,7 @@ section{padding:5.5rem 3rem;}
 
 /* ── FOOTER ── */
 footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.15em;color:var(--texto-suave);background:var(--crema);}
-.footer-logo{display:inline-flex;margin-bottom:1rem;}
+.footer-logo{display:block;margin:0 auto 1rem;width:64px;height:64px;}
 .footer-links{margin-top:1rem;display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;}
 .footer-links a{text-decoration:none;color:var(--terracota);border-bottom:0.5px solid var(--rosa);padding-bottom:1px;}
 
@@ -239,18 +268,29 @@ footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.
 }
 /* ── CELULAR ── */
 @media(max-width:600px){
-  nav{padding:0.8rem 1.1rem;}
-  .logo-main{font-size:1.35rem;letter-spacing:0.24em;}
-  .logo-sub{font-size:0.66rem;}
-  nav ul{gap:0.95rem;}
-  nav ul a{font-size:0.7rem;letter-spacing:0.08em;}
-  .hero{min-height:78vh;padding:3rem 1.2rem;}
-  .hero-glow{width:280px;height:280px;}
+  nav{padding:0.5rem 0 0;flex-direction:column;gap:0.3rem;}
+  .logo img{width:50px;height:50px;}
+  nav ul{gap:1.3rem;width:100%;overflow-x:auto;padding:0 1.1rem 0.15rem;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  nav ul::-webkit-scrollbar{display:none;}
+  nav ul li:first-child{margin-left:auto;}
+  nav ul li:last-child{margin-right:auto;}
+  nav ul a{font-size:0.7rem;letter-spacing:0.12em;display:block;padding:0.55rem 0;}
+  .page{padding-top:2.8rem;padding-bottom:3.5rem;}
+  .buy-tab{padding:0.7rem 0.9rem;font-size:0.68rem;letter-spacing:0.12em;}
+  .wholesale-list{padding:0.6rem 1.1rem;}
+  .wholesale-list li{font-size:0.92rem;}
+  .hero{padding-top:2.2rem !important;padding-bottom:0.5rem !important;}
+  .hero h1{font-size:1.9rem;}
+  .hero h1 .script{font-size:1.55em;}
+  .hero-sub{margin-top:1rem;}
+  #productos{padding-top:2.4rem;}
+  .hero{min-height:auto;padding:3rem 1.2rem;}
+  .hero-glow{width:240px;height:240px;}
   .hero-sub{font-size:0.95rem;}
   .btn-outline{padding:0.85rem 2rem;font-size:0.76rem;}
   section{padding:3.6rem 1.1rem;}
   .section-intro{font-size:0.95rem;margin-bottom:2.4rem;}
-  .cards,.cards.destacados{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 0.9rem;}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 0.9rem;}
   .foto-placeholder .ph-logo{font-size:1rem;}
   .foto-placeholder .ph-txt{font-size:0.56rem;letter-spacing:0.15em;text-align:center;padding:0 0.6rem;}
   .card h3{font-size:1.4rem;}
@@ -272,7 +312,7 @@ footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.
   .lightbox-prev{left:4px;}
   .lightbox-next{right:4px;}
   .lightbox-close{top:-8px;right:-8px;}
-  .features-row{grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+  .features-row{grid-template-columns:1fr;gap:1.6rem;margin-top:2.5rem;}
   .reviews-grid{grid-template-columns:1fr;}
   .reviews-avg{flex-direction:column;gap:0.5rem;}
   .coming-soon p{font-size:0.86rem;letter-spacing:0.03em;}
@@ -280,9 +320,7 @@ footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.
   .whatsapp-float{bottom:1.2rem;right:1.2rem;width:50px;height:50px;}
 }
 @media(max-width:380px){
-  nav ul{gap:0.7rem;}
-  nav ul a{font-size:0.64rem;letter-spacing:0.04em;}
-  .logo-main{font-size:1.2rem;}
+  nav ul{gap:1rem;}
 }
 </style>
 </head>
@@ -298,86 +336,110 @@ footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.
 </form>
 
 <nav>
-  <a class="logo" href="#" aria-label="LUMUS, inicio">
-    <span class="logo-main">LUMUS</span>
-    <span class="logo-sub">deco e Iluminación</span>
+  <a class="logo" href="#catalogo" aria-label="LUMUS, ir al catálogo">
+    <img src="fotos/logo-lumus-192.png" alt="LUMUS deco e iluminación" width="58" height="58">
   </a>
-  <ul>
-    <li><a href="#productos">Productos</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+  <ul class="nav-tabs" id="nav-tabs">
+    <li><a href="#catalogo" data-view="catalogo">Catálogo</a></li>
+    <li><a href="#info" data-view="info">Información</a></li>
+    <li><a href="#como-comprar" data-view="como-comprar">Cómo comprar</a></li>
+    <li><a href="#esencia" data-view="esencia">Nuestra esencia</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-glow"></div>
-  <h1>Bienvenido/a a tu<span class="script">nuevo rincón favorito</span></h1>
-  <p class="hero-sub">Veladores y objetos de diseño, creados para aportar calidez y estilo a tus espacios.</p>
-  <a href="#productos" class="btn-outline">Ver productos</a>
-  <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-</section>
+<main>
+<!-- ═══ CATÁLOGO ═══ -->
+<div class="view" id="v-catalogo">
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <h1><span id="c-hero-titulo"></span><span class="script" id="c-hero-destacado"></span></h1>
+    <p class="hero-sub" id="c-hero-sub"></p>
+  </section>
 
-<section id="mas-pedidos" hidden>
-  <p class="section-label">Favoritos</p>
-  <h2 class="section-title">Los más <em>pedidos</em></h2>
-  <p class="section-intro">Los veladores que más eligen nuestros clientes.</p>
-  <div class="cards destacados" id="destacados-grid"></div>
-</section>
+  <section id="productos">
+    <p class="section-label" id="c-cat-etiqueta"></p>
+    <h2 class="section-title" id="c-cat-titulo"></h2>
+    <div class="category-filters" role="tablist">
+      <button class="category-filter active" data-filter="todos">Todos</button>
+      <button class="category-filter" data-filter="veladores">Veladores</button>
+      <button class="category-filter" data-filter="decoracion">Decoración</button>
+    </div>
+    <div class="cards" id="productos-grid">
+      <p class="grid-estado">Cargando productos…</p>
+    </div>
+  </section>
 
-<section id="productos">
-  <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-  <p class="section-label">Colección</p>
-  <h2 class="section-title">Nuestros diseños</h2>
+  <div class="coming-soon" id="c-cat-aviso-wrap"><p>✦ &nbsp;<span id="c-cat-aviso"></span> &nbsp;✦</p></div>
 
-  <div class="category-filters" role="tablist">
-    <button class="category-filter active" data-filter="todos">Todos</button>
-    <button class="category-filter" data-filter="veladores">Veladores</button>
-    <button class="category-filter" data-filter="decoracion">Decoración</button>
-  </div>
-
-  <div class="cards" id="productos-grid">
-    <p class="grid-estado">Cargando productos…</p>
-  </div>
-</section>
-
-<div class="coming-soon">
-  <p>✦ &nbsp;<strong>Próximamente:</strong> nuevos diseños y colores · Agendanos para estar al tanto de las novedades &nbsp;✦</p>
+  <section class="reviews-section" id="resenas">
+    <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <h2 class="section-title">Reseñas de <em>clientes</em></h2>
+    <div class="reviews-avg" id="reviews-avg-block">
+      <span class="reviews-avg-num" id="avg-num">—</span>
+      <div>
+        <div class="reviews-avg-stars" id="avg-stars">☆☆☆☆☆</div>
+        <div class="reviews-avg-label" id="avg-label">Cargando reseñas…</div>
+      </div>
+    </div>
+    <div class="reviews-grid" id="reviews-container"></div>
+    <div class="reviews-cta"><a class="btn-outline" href="escribir-resena.html">Dejá tu reseña</a></div>
+  </section>
 </div>
 
-<section id="resenas" class="reviews-section">
-  <h2 class="section-title">Reseñas de <em>clientes</em></h2>
-  <div class="reviews-avg" id="reviews-avg-block">
-    <span class="reviews-avg-num" id="avg-num">—</span>
-    <div>
-      <div class="reviews-avg-stars" id="avg-stars">☆☆☆☆☆</div>
-      <div class="reviews-avg-label" id="avg-label">Cargando reseñas…</div>
-    </div>
-  </div>
-  <div class="reviews-grid" id="reviews-container"></div>
-  <div class="reviews-cta"><a class="btn-outline" href="escribir-resena.html">Dejá tu reseña</a></div>
-</section>
+<!-- ═══ INFORMACIÓN IMPORTANTE ═══ -->
+<div class="view" id="v-info" hidden>
+  <section class="page">
+    <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="section-label" id="c-info-etiqueta"></p>
+    <h2 class="section-title" id="c-info-titulo"></h2>
+    <p class="section-intro" id="c-info-intro"></p>
+    <div class="info-grid" id="c-info-items"></div>
+  </section>
+</div>
 
-<section id="nosotros" class="about-section">
-  <p class="section-label">Nuestra esencia</p>
-  <h2 class="section-title">Más que <em>decoración</em></h2>
-  <p>En LUMUS creemos que la luz tiene el poder de transformar un espacio y el estado de ánimo. Cada velador está pensado para acompañarte: en las noches de lectura, en las horas de trabajo, en los momentos de descanso.</p>
-  <div class="about-details">
-    <div class="about-detail-item"><span class="adi">✦</span><span>Trabajamos con <strong>stock disponible para entrega inmediata</strong> o por pedido con entrega dentro de las <strong>48 hs</strong>, según disponibilidad.</span></div>
-  </div>
-  <div class="features-row">
-    <div class="feature-item"><div class="feature-icon">✦</div><h4>Lectura</h4><p>Luz cálida ideal para largas noches de libro</p></div>
-    <div class="feature-item"><div class="feature-icon">✦</div><h4>Trabajo</h4><p>Ambiente cómodo sin reflejos ni dureza</p></div>
-    <div class="feature-item"><div class="feature-icon">✦</div><h4>Descanso</h4><p>Crea una atmósfera que invita a relajarse</p></div>
-    <div class="feature-item"><div class="feature-icon">✦</div><h4>Entrega rápida</h4><p>Stock disponible o pedido en 48 hs</p></div>
-  </div>
-</section>
+<!-- ═══ CÓMO COMPRAR ═══ -->
+<div class="view" id="v-como-comprar" hidden>
+  <section class="page">
+    <div class="arcos" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="section-label" id="c-comprar-etiqueta"></p>
+    <h2 class="section-title" id="c-comprar-titulo"></h2>
+    <div class="buy-tabs" role="tablist">
+      <button class="buy-tab active" data-buy="minorista" id="c-tab-min"></button>
+      <button class="buy-tab" data-buy="mayorista" id="c-tab-may"></button>
+    </div>
+
+    <div class="buy-panel" id="p-minorista">
+      <p class="buy-intro" id="c-min-intro"></p>
+      <ol class="steps" id="c-min-pasos"></ol>
+      <div class="buy-cta"><a class="btn-consult" href="#catalogo" id="c-min-boton"></a></div>
+    </div>
+
+    <div class="buy-panel" id="p-mayorista" hidden>
+      <p class="buy-intro" id="c-may-intro"></p>
+      <ul class="wholesale-list" id="c-may-items"></ul>
+      <div class="buy-cta"><a class="btn-consult" id="c-may-boton" target="_blank" rel="noopener"></a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ NUESTRA ESENCIA ═══ -->
+<div class="view" id="v-esencia" hidden>
+  <section class="about-section page">
+    <p class="section-label" id="c-esencia-etiqueta"></p>
+    <h2 class="section-title" id="c-esencia-titulo"></h2>
+    <p id="c-esencia-texto"></p>
+    <div class="features-row" id="c-esencia-items"></div>
+  </section>
+</div>
+
+</main>
 
 <footer id="contacto">
-  <span class="logo footer-logo"><span class="logo-main">LUMUS</span><span class="logo-sub">deco e Iluminación</span></span>
-  <div>Iluminación de diseño · General Roca, Río Negro</div>
+  <img class="footer-logo" src="fotos/logo-lumus-192.png" alt="LUMUS" width="64" height="64">
+  <div id="c-ubicacion">Iluminación de diseño · General Roca, Río Negro</div>
   <div class="footer-links">
-    <a href="https://wa.me/5492944801830?text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20productos%20LUMUS" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="https://www.instagram.com/lumus.decohogar/" target="_blank" rel="noopener">Instagram</a>
+    <a id="c-wa-link" href="https://wa.me/5492944801830" target="_blank" rel="noopener">WhatsApp</a>
+    <a id="c-ig-link" href="https://www.instagram.com/lumus.decohogar/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
 
@@ -405,7 +467,7 @@ footer{text-align:center;padding:2.8rem 2rem;font-size:0.84rem;letter-spacing:0.
 // Los productos se cargan desde data/productos.json
 // (ese archivo es el que se edita desde el panel /admin)
 // ─────────────────────────────────────────────────────────────
-const WHATSAPP = '5492944801830';
+let WHATSAPP = '5492944801830';
 let productos = [];
 let filtroActual = 'todos';
 let actual = null;   // { p, ci, fi } producto, color y foto que se están mostrando
@@ -414,7 +476,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 const slug = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const fmt = n => Number(n).toLocaleString('es-AR');
 const tienePrecio = c => c && c.precio !== null && c.precio !== undefined && c.precio !== '' && Number(c.precio) > 0;
-const fotosDe = c => (c && Array.isArray(c.fotos) ? c.fotos.filter(Boolean) : []);
+const fotosDe = c => (c && Array.isArray(c.fotos) ? c.fotos.filter(Boolean).map(f => String(f).replace(/^\//, '')) : []);
 const hayStock = p => p.colores.some(c => c.stock !== false);
 
 function colorInicial(p) {
@@ -442,7 +504,6 @@ function cardHTML(p, contexto) {
   let badge = '';
   if (!hayStock(p)) badge = '<span class="badge sin-stock">Sin stock</span>';
   else if (p.nuevo) badge = '<span class="badge nuevo">Nuevo</span>';
-  else if (p.masPedido && contexto !== 'destacados') badge = '<span class="badge">Más pedido</span>';
   const swatches = p.colores.map(c =>
     `<span class="sw${c.stock === false ? ' no-stock' : ''}" style="background:${esc(c.hex || '#eee')}" title="${esc(c.nombre)}${c.stock === false ? ' (sin stock)' : ''}"></span>`
   ).join('');
@@ -475,10 +536,6 @@ function renderProductos() {
   if (!hayDeco && (filtroActual === 'todos' || filtroActual === 'decoracion')) html += soonCard;
   grid.innerHTML = html || '<p class="grid-estado">Todavía no hay productos en esta categoría.</p>';
 
-  const dest = productos.filter(p => p.masPedido);
-  const sec = document.getElementById('mas-pedidos');
-  sec.hidden = !dest.length;
-  document.getElementById('destacados-grid').innerHTML = dest.map(p => cardHTML(p, 'destacados')).join('');
 }
 
 document.querySelectorAll('.category-filter').forEach(b => b.addEventListener('click', () => {
@@ -615,7 +672,7 @@ function moverFoto(dir) {
 
 function cerrarDetalle() {
   if (history.state && history.state.lumus) { history.back(); return; }
-  history.replaceState(null, '', location.pathname + location.search);
+  history.replaceState(null, '', '#catalogo');
   ocultarDetalle();
 }
 function ocultarDetalle() {
@@ -626,16 +683,82 @@ function ocultarDetalle() {
   document.body.style.overflow = '';
   actual = null;
 }
+// ── Secciones: cada botón del menú muestra solo su sección ──
+const VISTAS = ['catalogo', 'info', 'como-comprar', 'esencia'];
+let vistaActual = null;
+function mostrarVista(v) {
+  if (v === vistaActual) return;
+  vistaActual = v;
+  VISTAS.forEach(x => { document.getElementById('v-' + x).hidden = x !== v; });
+  document.querySelectorAll('#nav-tabs a').forEach(a => a.classList.toggle('active', a.dataset.view === v));
+  const activo = document.querySelector('#nav-tabs a.active');
+  if (activo && activo.scrollIntoView) activo.scrollIntoView({ block: 'nearest', inline: 'center' });
+  window.scrollTo(0, 0);
+}
 function sincronizarConHash() {
-  const m = location.hash.match(/^#modelo-(.+)$/);
-  if (m && productos.some(p => p.id === m[1])) {
-    if (!actual || actual.p.id !== m[1]) abrirDetalle(m[1], false);
-  } else {
-    cerrarLightbox();
-    ocultarDetalle();
+  const h = location.hash.replace(/^#/, '');
+  const m = h.match(/^modelo-(.+)$/);
+  if (m) {
+    mostrarVista('catalogo');
+    if (productos.some(p => p.id === m[1]) && (!actual || actual.p.id !== m[1])) abrirDetalle(m[1], false);
+    return;
   }
+  cerrarLightbox();
+  ocultarDetalle();
+  mostrarVista(VISTAS.includes(h) ? h : 'catalogo');
+  if (h === 'resenas') setTimeout(() => document.getElementById('resenas').scrollIntoView({ behavior: 'smooth' }), 50);
 }
 window.addEventListener('popstate', sincronizarConHash);
+window.addEventListener('hashchange', sincronizarConHash);
+sincronizarConHash();
+
+// Pestañas de "Cómo comprar"
+document.querySelectorAll('.buy-tab').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.buy-tab').forEach(x => x.classList.toggle('active', x === b));
+  document.getElementById('p-minorista').hidden = b.dataset.buy !== 'minorista';
+  document.getElementById('p-mayorista').hidden = b.dataset.buy !== 'mayorista';
+}));
+
+// ── Textos de las secciones (data/contenido.json, editable desde /admin) ──
+const $ = id => document.getElementById(id);
+const setTxt = (id, t) => { const el = $(id); if (el) el.textContent = t || ''; };
+const tituloHTML = (t, d) => esc(t || '') + (d ? ` <em>${esc(d)}</em>` : '');
+function renderContenido(c) {
+  const ini = c.inicio || {}, cat = c.catalogo || {}, info = c.info || {}, com = c.comprar || {}, ese = c.esencia || {}, con = c.contacto || {};
+  setTxt('c-hero-titulo', ini.titulo); setTxt('c-hero-destacado', ini.tituloDestacado); setTxt('c-hero-sub', ini.subtitulo);
+  setTxt('c-cat-etiqueta', cat.etiqueta); setTxt('c-cat-titulo', cat.titulo);
+  setTxt('c-cat-aviso', cat.aviso); $('c-cat-aviso-wrap').hidden = !cat.aviso;
+
+  setTxt('c-info-etiqueta', info.etiqueta); $('c-info-titulo').innerHTML = tituloHTML(info.titulo, info.tituloDestacado);
+  setTxt('c-info-intro', info.intro);
+  $('c-info-items').innerHTML = (info.items || []).filter(i => i && (i.titulo || i.texto)).map(i =>
+    `<div class="info-card"><div class="info-icon">✦</div><h3>${esc(i.titulo)}</h3><p>${esc(i.texto)}</p></div>`).join('');
+
+  const min = com.minorista || {}, may = com.mayorista || {};
+  setTxt('c-comprar-etiqueta', com.etiqueta); $('c-comprar-titulo').innerHTML = tituloHTML(com.titulo, com.tituloDestacado);
+  setTxt('c-tab-min', min.pestana || 'Compra minorista'); setTxt('c-tab-may', may.pestana || 'Compra mayorista');
+  setTxt('c-min-intro', min.intro);
+  $('c-min-pasos').innerHTML = (min.pasos || []).filter(x => x && (x.titulo || x.texto)).map(x =>
+    `<li><h3>${esc(x.titulo)}</h3><p>${esc(x.texto)}</p></li>`).join('');
+  setTxt('c-min-boton', min.boton || 'Ver catálogo');
+  setTxt('c-may-intro', may.intro);
+  $('c-may-items').innerHTML = (may.items || []).filter(Boolean).map(x => `<li><span>${esc(x)}</span></li>`).join('');
+  setTxt('c-may-boton', may.boton || 'Consultar');
+
+  setTxt('c-esencia-etiqueta', ese.etiqueta); $('c-esencia-titulo').innerHTML = tituloHTML(ese.titulo, ese.tituloDestacado);
+  setTxt('c-esencia-texto', ese.texto);
+  $('c-esencia-items').innerHTML = (ese.items || []).filter(i => i && i.titulo).map(i =>
+    `<div class="feature-item"><div class="feature-icon">✦</div><h4>${esc(i.titulo)}</h4><p>${esc(i.texto)}</p></div>`).join('');
+
+  if (con.whatsapp) WHATSAPP = String(con.whatsapp).replace(/\D/g, '');
+  const waGeneral = `https://wa.me/${WHATSAPP}?text=` + encodeURIComponent('Hola! Me interesa saber más sobre los productos LUMUS');
+  $('c-wa-link').href = waGeneral;
+  document.querySelector('.whatsapp-float').href = waGeneral;
+  $('c-may-boton').href = `https://wa.me/${WHATSAPP}?text=` + encodeURIComponent(may.mensajeWhatsapp || 'Hola! Quiero consultar por compra mayorista en LUMUS');
+  if (con.instagram) $('c-ig-link').href = 'https://www.instagram.com/' + String(con.instagram).replace(/^@/, '') + '/';
+  if (con.ubicacion) setTxt('c-ubicacion', con.ubicacion);
+}
+fetch('data/contenido.json', { cache: 'no-cache' }).then(r => r.json()).then(renderContenido).catch(() => {});
 document.getElementById('detalle').addEventListener('click', e => { if (e.target.id === 'detalle') cerrarDetalle(); });
 
 // ── Lightbox ──

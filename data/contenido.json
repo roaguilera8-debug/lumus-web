@@ -1,0 +1,84 @@
+{
+  "inicio": {
+    "titulo": "Bienvenido/a a tu",
+    "tituloDestacado": "nuevo rincón favorito",
+    "subtitulo": "Veladores y objetos de diseño, creados para aportar calidez y estilo a tus espacios."
+  },
+  "catalogo": {
+    "etiqueta": "Colección",
+    "titulo": "Nuestro catálogo",
+    "aviso": "Próximamente: nuevos diseños y colores · Agendanos para estar al tanto de las novedades"
+  },
+  "info": {
+    "etiqueta": "Antes de comprar",
+    "titulo": "Información",
+    "tituloDestacado": "importante",
+    "intro": "Todo lo que tenés que saber sobre nuestros veladores.",
+    "items": [
+      {
+        "titulo": "Material biodegradable",
+        "texto": "Todos nuestros veladores están hechos en PLA, un plástico biodegradable de origen vegetal, utilizado para impresión en 3D."
+      },
+      {
+        "titulo": "Listos para usar",
+        "texto": "Todos vienen con foco cálido incluido (E27, 5,5 W) y cable con interruptor. Solo tenés que enchufarlo."
+      },
+      {
+        "titulo": "Cuidados",
+        "texto": "Limpialo con un paño seco. Evitá dejarlo al sol directo o cerca de fuentes de calor, ya que el material puede deformarse con altas temperaturas."
+      }
+    ]
+  },
+  "comprar": {
+    "etiqueta": "Paso a paso",
+    "titulo": "Cómo",
+    "tituloDestacado": "comprar",
+    "minorista": {
+      "pestana": "Compra minorista",
+      "intro": "Comprar en LUMUS es simple:",
+      "pasos": [
+        {
+          "titulo": "Elegí tu velador",
+          "texto": "Recorré el catálogo y elegí el modelo y color que más te guste."
+        },
+        {
+          "titulo": "Escribinos por WhatsApp",
+          "texto": "Tocá «Consultar» en el producto y te respondemos a la brevedad."
+        },
+        {
+          "titulo": "Coordinamos la entrega",
+          "texto": "Entregamos en General Roca y alrededores: inmediata según stock disponible, o por pedido con entrega en 48 hs."
+        }
+      ],
+      "boton": "Ver catálogo"
+    },
+    "mayorista": {
+      "pestana": "Compra mayorista",
+      "intro": "¿Tenés una tienda, un emprendimiento o querés regalar en cantidad? Trabajamos pedidos mayoristas.",
+      "items": [
+        "Los pedidos se realizan con al menos una semana de anticipación.",
+        "Trabajamos con una seña del 50% para confirmar el pedido; el saldo se abona al momento de la entrega.",
+        "Podés combinar distintos modelos y colores en un mismo pedido.",
+        "Consultanos por la lista de precios mayorista."
+      ],
+      "boton": "Consultar por compra mayorista",
+      "mensajeWhatsapp": "Hola! Quiero consultar por compra mayorista en LUMUS"
+    }
+  },
+  "esencia": {
+    "etiqueta": "Nuestra esencia",
+    "titulo": "Más que",
+    "tituloDestacado": "decoración",
+    "texto": "En LUMUS creemos que la luz tiene el poder de transformar un espacio y el estado de ánimo. Cada velador está pensado para acompañarte: en las noches de lectura, en las horas de trabajo, en los momentos de descanso.",
+    "items": [
+      { "titulo": "Lectura", "texto": "Luz cálida ideal para largas noches de libro" },
+      { "titulo": "Trabajo", "texto": "Ambiente cómodo sin reflejos ni dureza" },
+      { "titulo": "Descanso", "texto": "Crea una atmósfera que invita a relajarse" }
+    ]
+  },
+  "contacto": {
+    "whatsapp": "5492944801830",
+    "instagram": "lumus.decohogar",
+    "ubicacion": "Iluminación de diseño · General Roca, Río Negro"
+  }
+}
