@@ -7,7 +7,7 @@
   "catalogo": {
     "etiqueta": "Colección",
     "titulo": "Nuestro catálogo",
-    "aviso": "Próximamente: nuevos diseños y colores · Agendanos para estar al tanto de las novedades"
+    "aviso": "Próximamente: nuevos diseños y colores · Seguinos para estar al tanto de las novedades"
   },
   "info": {
     "etiqueta": "Antes de comprar",
@@ -17,11 +17,11 @@
     "items": [
       {
         "titulo": "Material biodegradable",
-        "texto": "Todos nuestros veladores están hechos en PLA, un plástico biodegradable de origen vegetal, utilizado para impresión en 3D."
+        "texto": "Todos nuestros veladores están hechos en PLA, un plástico biodegradable super resistente, de origen vegetal, utilizado para impresión en 3D."
       },
       {
         "titulo": "Listos para usar",
-        "texto": "Todos vienen con foco cálido incluido (E27, 5,5 W) y cable con interruptor. Solo tenés que enchufarlo."
+        "texto": "Todos vienen con foco cálido incluido (E27, 5,5 W) y cable con interruptor. Lista para disfrutar."
       },
       {
         "titulo": "Cuidados",
@@ -54,12 +54,12 @@
     },
     "mayorista": {
       "pestana": "Compra mayorista",
-      "intro": "¿Tenés una tienda, un emprendimiento o querés regalar en cantidad? Trabajamos pedidos mayoristas.",
+      "intro": "Trabajamos pedidos mayoristas, para tu local y eventos.",
       "items": [
         "Los pedidos se realizan con al menos una semana de anticipación.",
-        "Trabajamos con una seña del 50% para confirmar el pedido; el saldo se abona al momento de la entrega.",
+        "Trabajamos con una seña del 50% para confirmar el pedido; el saldo total se abona al momento de la entrega.",
         "Podés combinar distintos modelos y colores en un mismo pedido.",
-        "Consultanos por la lista de precios mayorista."
+        "Consultanos por la lista de precios mayorista (hacemos descuentos a partir de 7 veladores)."
       ],
       "boton": "Consultar por compra mayorista",
       "mensajeWhatsapp": "Hola! Quiero consultar por compra mayorista en LUMUS"
@@ -71,9 +71,18 @@
     "tituloDestacado": "decoración",
     "texto": "En LUMUS creemos que la luz tiene el poder de transformar un espacio y el estado de ánimo. Cada velador está pensado para acompañarte: en las noches de lectura, en las horas de trabajo, en los momentos de descanso.",
     "items": [
-      { "titulo": "Lectura", "texto": "Luz cálida ideal para largas noches de libro" },
-      { "titulo": "Trabajo", "texto": "Ambiente cómodo sin reflejos ni dureza" },
-      { "titulo": "Descanso", "texto": "Crea una atmósfera que invita a relajarse" }
+      {
+        "titulo": "Lectura",
+        "texto": "Luz cálida ideal para largas noches de libro"
+      },
+      {
+        "titulo": "Trabajo",
+        "texto": "Ambiente cómodo sin reflejos ni dureza"
+      },
+      {
+        "titulo": "Descanso",
+        "texto": "Crea una atmósfera que invita a relajarse"
+      }
     ]
   },
   "contacto": {
